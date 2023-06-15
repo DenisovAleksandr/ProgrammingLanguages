@@ -34,12 +34,26 @@ if (number1 < number2){
         Console.WriteLine("max - "+number1);
 }
 */
-/*Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).*/
+
+/*Задача 6: Напишите программу, которая на вход принимает число и выдаёт, 
+является ли число чётным (делится ли оно на два без остатка).*/
+/*
 Console.WriteLine("Enter number");
 int number = Convert.ToInt32(Console.ReadLine());
 if (number % 2 != 0)
 Console.WriteLine(number + " - odd number");
 else
 Console.WriteLine(number + " - even number");
+*/
 
-/*Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.*/
+/*Задача 8: Напишите программу, которая на вход принимает число (N), 
+а на выходе показывает все чётные числа от 1 до N.*/
+
+Console.WriteLine("Enter number");
+int number = Convert.ToInt32(Console.ReadLine());
+int amountEven = number/2;
+Console.Write($"Even number before {number}: ");
+for (int i = 1;i<amountEven+1;i++)
+{
+    Console.Write(i*2+" ");
+}  
