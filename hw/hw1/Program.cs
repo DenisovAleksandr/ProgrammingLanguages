@@ -18,3 +18,16 @@ Console.WriteLine("Input second numbers: ");
 int number2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input third numbers: ");
 int number3 = Convert.ToInt32(Console.ReadLine());
+if (number1 < number2){
+    if (number2 < number3)    
+        Console.WriteLine("max - "+number3);
+    else
+        Console.WriteLine("max - "+number2);
+    
+} else 
+{
+    if (number1 < number3)    
+        Console.WriteLine("max - "+number3);
+    else
+        Console.WriteLine("max - "+number1);
+}
