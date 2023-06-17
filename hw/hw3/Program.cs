@@ -34,6 +34,7 @@ bool CheckPalindrome (int num){
 */
 /*Задача 21 Напишите программу, которая принимает на вход координаты двух точек и 
 находит расстояние между ними в 3D пространстве.*/
+/*
 Console.WriteLine("Enter the coordinates of point A separated by commas. For example: 2,3,4");
 int[] a= Console.ReadLine().Split(',').Select(int.Parse).ToArray();
 
@@ -44,8 +45,14 @@ Console.WriteLine($"{DistanceAB(a,b)}");
 double DistanceAB (int[] a, int[] b){
     return Math.Round(Math.Sqrt(Math.Pow(b[0]-a[0], 2) + Math.Pow(b[1]-a[1],2) + Math.Pow(b[2]-a[2], 2)),2);
 }
-
+*/
 
 /*Задача 23 Напишите программу, которая принимает на вход число (N) и выдаёт 
 таблицу кубов чисел от 1 до N.*/
-
+Console.WriteLine("Enter N");
+int n = Convert.ToInt32(Console.ReadLine()); 
+for (int i = 1;i<=n;i++){
+    double res = Math.Pow(i, 3);
+    Console.Write($"{res:f0}, ");
+}    
+Console.WriteLine("\b\b ");
