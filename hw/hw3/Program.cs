@@ -1,12 +1,9 @@
 ﻿/*Задача 19 Напишите программу, которая принимает на вход пятизначное число и проверяет, 
 является ли оно палиндромом.*/
-
+/*
 Console.WriteLine("Enter five digit number");
 int num = Convert.ToInt32(Console.ReadLine()); 
-/*while (NumberOfDigits(num)!=5){
-    Console.WriteLine("Invalid number! Please, enter five digit number");
-    num=Convert.ToInt32(Console.ReadLine());
-}   */
+
 
 CheckPalindrome(num);
 if (CheckPalindrome(num))
@@ -34,9 +31,19 @@ bool CheckPalindrome (int num){
     }
     return true;
 }
-
+*/
 /*Задача 21 Напишите программу, которая принимает на вход координаты двух точек и 
 находит расстояние между ними в 3D пространстве.*/
+Console.WriteLine("Enter the coordinates of point A separated by commas. For example: 2,3,4");
+int[] a= Console.ReadLine().Split(',').Select(int.Parse).ToArray();
+
+Console.WriteLine("Enter the coordinates of point B separated by commas. For example: 2,3,4");
+int[] b= Console.ReadLine().Split(',').Select(int.Parse).ToArray();
+Console.WriteLine($"{DistanceAB(a,b)}");
+
+double DistanceAB (int[] a, int[] b){
+    return Math.Round(Math.Sqrt(Math.Pow(b[0]-a[0], 2) + Math.Pow(b[1]-a[1],2) + Math.Pow(b[2]-a[2], 2)),2);
+}
 
 
 /*Задача 23 Напишите программу, которая принимает на вход число (N) и выдаёт 
