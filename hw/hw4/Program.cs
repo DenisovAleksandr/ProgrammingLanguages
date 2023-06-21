@@ -54,8 +54,32 @@ int SumDigit (int user_num)
 }
 */
 
-
-
-/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит 
+их на экран.
 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 6, 1, 33 -> [6, 1, 33]*/
+Console.WriteLine("Enter array's length:");
+int lengthArr = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the minimum value of the array element:");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the maximum value of the array element:");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[] arr = CreateArray(lengthArr,min,max);
+PrintArray(arr);
+int[] CreateArray(int lengthArr, int min, int max)
+{
+    Random rand = new Random();
+    int[] arr = new int[lengthArr];
+    for (int i = 0;i < lengthArr; i++)
+        arr[i] = rand.Next(min,max+1);
+    return arr;
+}
+
+void PrintArray (int[] arr)
+{
+    Console.Write("[");
+    for (int i = 0;i < arr.Length ; i++)
+        Console.Write(arr[i]+", ");
+    Console.WriteLine("\b\b]");
+}
