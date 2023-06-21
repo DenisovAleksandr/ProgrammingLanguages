@@ -67,6 +67,7 @@ int max = Convert.ToInt32(Console.ReadLine());
 
 int[] arr = CreateArray(lengthArr,min,max);
 PrintArray(arr);
+
 int[] CreateArray(int lengthArr, int min, int max)
 {
     Random rand = new Random();
