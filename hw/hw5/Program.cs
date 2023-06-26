@@ -50,14 +50,13 @@ void PrintArray (int[] arr)
 
 Console.WriteLine("Enter array's length ");
 int lengthArr = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("The sum of elements in odd positions: "+SumElemOddPos(arr));
-
 int [] arr = GenerateArray(lengthArr);
 PrintArray(arr);
+Console.WriteLine("The sum of elements in odd positions: "+SumElemOddPos(arr));
 int SumElemOddPos (int[] arr) 
 {
     int sum=0;
-    for (int i = 0;i i < arr.Length; i=i+2)
+    for (int i = 1;i < arr.Length; i=i+2)
     {
         sum+=arr[i];
     }
@@ -68,7 +67,7 @@ int[] GenerateArray(int lengthArr)
     Random rand = new Random();
     int[] arr = new int[lengthArr];
     for (int i = 0;i < lengthArr; i++)
-        arr[i] = rand.Next(100,1000);
+        arr[i] = rand.Next(1,10);
     return arr;
 }
 void PrintArray (int[] arr)
