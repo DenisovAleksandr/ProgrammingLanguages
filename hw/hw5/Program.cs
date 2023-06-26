@@ -47,7 +47,7 @@ void PrintArray (int[] arr)
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0
 */
-
+/*
 Console.WriteLine("Enter array's length ");
 int lengthArr = Convert.ToInt32(Console.ReadLine());
 int [] arr = GenerateArray(lengthArr);
@@ -77,7 +77,46 @@ void PrintArray (int[] arr)
         Console.Write(arr[i]+", ");
     Console.WriteLine("\b\b]");
 }
-
+*/
 /*Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным
  и минимальным элементов массива.
 [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76*/
+const double MIN = -10;
+const double MAX = 10;
+Console.WriteLine("Enter array's length ");
+int lengthArr = Convert.ToInt32(Console.ReadLine());
+double [] arr = GenerateArray(lengthArr);
+PrintArray(arr);
+Console.Write($"difference between maximum and minimum elements:{MaxElem(arr)}-{MinElem(arr)} = ");
+Console.WriteLine(MaxElem(arr)-MinElem(arr));
+double MaxElem (double[] arr)
+{
+    double maximum = MIN;
+    for (int i = 0;i<lengthArr;i++)
+        if (arr[i]>maximum)
+            maximum = arr[i];
+    return maximum;
+}
+double MinElem (double[] arr)
+{
+    double minimum = MAX;
+    for (int i = 0;i<lengthArr;i++)
+        if (arr[i]<minimum)
+            minimum = arr[i];
+    return minimum;
+}
+double[] GenerateArray(int lengthArr)
+{
+    Random rand = new Random();
+    double[] arr = new double[lengthArr];
+    for (int i = 0;i < lengthArr; i++)
+        arr[i] =Math.Round((MIN + rand.NextDouble()*(MAX-MIN)),2);
+    return arr;
+}
+void PrintArray (double[] arr)
+{
+    Console.Write("[");
+    for (int i = 0;i < arr.Length ; i++)
+        Console.Write(arr[i]+", ");
+    Console.WriteLine("\b\b]");
+}
