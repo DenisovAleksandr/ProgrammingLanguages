@@ -48,6 +48,37 @@ void PrintArray (int[] arr)
 [-4, -6, 89, 6] -> 0
 */
 
+Console.WriteLine("Enter array's length ");
+int lengthArr = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("The sum of elements in odd positions: "+SumElemOddPos(arr));
+
+int [] arr = GenerateArray(lengthArr);
+PrintArray(arr);
+int SumElemOddPos (int[] arr) 
+{
+    int sum=0;
+    for (int i = 0;i i < arr.Length; i=i+2)
+    {
+        sum+=arr[i];
+    }
+    return sum;
+}
+int[] GenerateArray(int lengthArr)
+{
+    Random rand = new Random();
+    int[] arr = new int[lengthArr];
+    for (int i = 0;i < lengthArr; i++)
+        arr[i] = rand.Next(100,1000);
+    return arr;
+}
+void PrintArray (int[] arr)
+{
+    Console.Write("[");
+    for (int i = 0;i < arr.Length ; i++)
+        Console.Write(arr[i]+", ");
+    Console.WriteLine("\b\b]");
+}
+
 /*Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным
  и минимальным элементов массива.
 [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76*/
