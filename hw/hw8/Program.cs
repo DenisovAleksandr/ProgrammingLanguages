@@ -9,22 +9,43 @@
 9 5 3 2
 8 4 4 2
 */
+/*
+Console.WriteLine("Enter count rows of new array:");
+int arr_rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count cols of new array:");
+int arr_cols = Convert.ToInt32(Console.ReadLine());
+int[,] user_array = Create2DArray(arr_rows, arr_cols);
+Print2DArray(user_array);
+Console.WriteLine("Array with sort rows: ");
+SortArray(user_array);
+Print2DArray(user_array);
 
-int [] SortDescBySortArray (int [] arr)
+int [,] SortArray (int [,] arr)
 {
-    for (int i = 0;i < arr.Length; i++)
+    int temp;
+    for (int i = 0;i<arr.GetLength(0);i++)
     {
-        Array.Sort(arr);
-        Array.Reverse(arr);
+        for (int j = 0;j < arr.GetLength(1)-1; j++)
+        {
+            for (int k = j+1;k < arr.GetLength(1);k++)
+            {
+                if (arr[i,j] > arr[i,k])
+                    {
+                        temp = arr[i,j];
+                        arr[i,j] = arr[i,k];
+                        arr[i,k] = temp;
+                    }
+            }
+        }
     }
     return arr;
 }
-int[] GenerateArray(int lengthArr)
+int[,] Create2DArray(int arr_rows, int arr_cols)
 {
-    Random rand = new Random();
-    int[] arr = new int[lengthArr];
-    for (int i = 0;i < lengthArr; i++)
-        arr[i] = rand.Next(1,10);
+    int[,] arr = new int[arr_rows, arr_cols];
+    for (int i = 0;i < arr_rows; i++)
+    for (int j = 0;j < arr_cols; j++)
+        arr[i,j] = new Random().Next(10);
     return arr;
 }
 void Print2DArray (int[,] arr)
@@ -36,7 +57,7 @@ void Print2DArray (int[,] arr)
     Console.WriteLine();
     }
 }
-
+*/
 /*Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, 
 которая будет находить строку с наименьшей суммой элементов.
 
