@@ -69,7 +69,71 @@ void Print2DArray (int[,] arr)
 Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей 
 суммой элементов: 1 строка
 */
+/*
+Console.WriteLine("Enter count rows of new array:");
+int arr_rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count cols of new array:");
+int arr_cols = Convert.ToInt32(Console.ReadLine());
+while (!Check(arr_rows, arr_cols))
+{
+    Console.WriteLine("The number of rows and columns must not be equal!");
+    Console.WriteLine("Please, enter values again!");
+    Console.WriteLine("Enter count rows of new array:");
+    arr_rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter count cols of new array:");
+    arr_cols = Convert.ToInt32(Console.ReadLine());
+}
 
+int[,] user_array = Create2DArray(arr_rows, arr_cols);
+Console.WriteLine();
+Print2DArray(user_array);
+Console.WriteLine("Minimum sum of elements in {0} line",MinElemInArray(SumInRow(user_array)));
+
+int [] SumInRow (int [,] arr)
+{
+    int [] sum = new int[arr.GetLength(0)];
+    for (int i = 0;i < arr.GetLength(0);i++)
+        for (int j = 0;j < arr.GetLength(1);j++)
+            sum[i]+=arr[i,j];
+    return sum;
+}
+int MinElemInArray (int [] arr)
+{
+    int min=Int32.MaxValue;
+    int result=-1;
+    for (int i = 0;i < arr.Length;i++)
+    if (min>arr[i])
+        {
+        min=arr[i];
+        result=i;
+        }
+    return(result);
+}
+bool Check (int rows, int cols)
+{
+    if (rows == cols)
+        return false;
+    return true;
+}
+
+int[,] Create2DArray(int arr_rows, int arr_cols)
+{
+    int[,] arr = new int[arr_rows, arr_cols];
+    for (int i = 0;i < arr_rows; i++)
+    for (int j = 0;j < arr_cols; j++)
+        arr[i,j] = new Random().Next(10);
+    return arr;
+}
+void Print2DArray (int[,] arr)
+{
+    for (int i = 0;i < arr.GetLength(0) ; i++)
+    {
+        for(int j = 0; j < arr.GetLength(1); j++)
+        Console.Write("{0}\t",arr[i,j]);
+    Console.WriteLine();
+    }
+}
+*/
 /*Задача 58: Задайте две матрицы. Напишите программу, которая будет находить 
 произведение двух матриц.
 Например, даны 2 матрицы:
