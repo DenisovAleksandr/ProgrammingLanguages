@@ -219,6 +219,42 @@ int [,] MultiplicationMatrix (int[,] matrixA, int[,] matrixB)
 27(0,0,1) 90(0,1,1)
 26(1,0,1) 55(1,1,1)
 */
+Console.WriteLine("Enter count rows of array:");
+int user_rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count columns of array:");
+int user_cols = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count pages of array:");
+int user_pages = Convert.ToInt32(Console.ReadLine());
+int [,,] array3D = CreateArray3D(user_rows, user_cols, user_pages); 
+PrintArray3D(array3D);
+
+int [,,] CreateArray3D (int rows, int cols,int pages)
+{
+    int [,,] array3D = new int[rows, cols, pages];
+    int [] check_array = new int [100];
+    for (int i = 0;i<rows;i++)
+        for (int j = 0;j<cols;j++)
+            for (int k = 0;k<pages;k++)
+            {
+                array3D[i,j,k] = new Random().Next(10,100);
+                while (check_array[array3D[i,j,k]]==1)
+                    array3D[i,j,k] = new Random().Next(10,100); +
+                check_array[array3D[i,j,k]]=1;
+            }
+}
+
+void PrintArray3D (int [,,] array3D)
+{
+    for (int i = 0;i<rows;i++)
+        for (int j = 0;j<cols;j++)
+        {
+            for (int k = 0;k<pages;k++)
+            Console.WriteLine ("{0}({1},{2},{3})",array3D[i,j,k],i,j,k);
+            Console.WriteLine("");
+        }
+        
+
+}
 
 /*Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 Например, на выходе получается вот такой массив:
