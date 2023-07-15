@@ -219,7 +219,7 @@ int [,] MultiplicationMatrix (int[,] matrixA, int[,] matrixB)
 27(0,0,1) 90(0,1,1)
 26(1,0,1) 55(1,1,1)
 */
-Console.WriteLine("Enter count rows of array:");
+/*Console.WriteLine("Enter count rows of array:");
 int user_rows = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter count columns of array:");
 int user_cols = Convert.ToInt32(Console.ReadLine());
@@ -257,7 +257,7 @@ void PrintArray3D (int [,,] array3D)
         }
     }
 }
-
+*/
 /*Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 Например, на выходе получается вот такой массив:
 01 02 03 04
@@ -265,3 +265,59 @@ void PrintArray3D (int [,,] array3D)
 11 16 15 06
 10 09 08 07
 */
+/*(0,0) (0,1) (0,2) (0,3) (1,3) (2,3) (3,3) (3,2) (3.1) (3.0) (2.0) (1.0)*/
+Console.WriteLine("Enter count rows of array:");
+int user_rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count columns of array:");
+int user_cols = Convert.ToInt32(Console.ReadLine());
+Print2DArray(CreateArrayShake(user_rows, user_cols));
+
+int [,] CreateArrayShake(int rows, int cols)
+{
+    int [,] arr = new int [rows,cols];
+    int elem=1;
+    int i1=0;
+    int j1=0;
+    int count_elem = cols*rows;
+    while (elem<count_elem)
+    {
+        for (int j=j1; j<cols;j++) //right
+        {
+            arr[i1,j1]=elem;
+            elem++;
+            j1=j;
+        }
+        cols--;
+        for (int i=i1; i<rows;i++) //down
+        {
+            arr[i1,j1]=elem;
+            elem++;
+            i1=i;
+        }
+        rows--;
+        
+        for (int j=cols; j>j1;j--) //left
+        {
+            arr[i1,j1]=elem;
+            elem++;
+            j1=j;
+        }
+        cols--;
+        for (int i=rows; i>i1;i--) //up
+        {
+            arr[i1,j1]=elem;
+            elem++;
+            i1=i;
+        }
+        rows--;
+    }
+}
+void Print2DArray (int[,] arr)
+{
+    for (int i = 0;i < arr.GetLength(0) ; i++)
+    {
+        for(int j = 0; j < arr.GetLength(1); j++)
+        Console.Write("{0}\t",arr[i,j]);
+    Console.WriteLine();
+    }
+}
