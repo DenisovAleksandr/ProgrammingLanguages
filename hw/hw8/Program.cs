@@ -143,6 +143,7 @@ void Print2DArray (int[,] arr)
 18 20
 15 18
 */
+/*
 Console.WriteLine("Enter count rows of matrix A:");
 int rows_A = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter count cols of matrix A:");
@@ -151,27 +152,33 @@ Console.WriteLine("Enter count rows of matrix B:");
 int rows_B = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter count cols of matrix B:");
 int cols_B = Convert.ToInt32(Console.ReadLine());
-while (!Check(arr_rows, arr_cols))
+
+while (!Check(rows_B, cols_A))
 {
     Console.WriteLine("The number of columns of the first matrix must equal the number of rows of the second matrix!");
     Console.WriteLine("Please, enter values again!");
     Console.WriteLine("Enter count rows of matrix A:");
-    int rows_A = Convert.ToInt32(Console.ReadLine());
+    rows_A = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Enter count cols of matrix A:");
-    int cols_A = Convert.ToInt32(Console.ReadLine());
+    cols_A = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Enter count rows of matrix B:");
-    int rows_B = Convert.ToInt32(Console.ReadLine());
+    rows_B = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Enter count cols of matrix B:");
-    int cols_B = Convert.ToInt32(Console.ReadLine());
-
+    cols_B = Convert.ToInt32(Console.ReadLine());
 }
 
 int [,] matrixA = Create2DArray(rows_A,cols_A);
 int [,] matrixB = Create2DArray(rows_B,cols_B);
+Console.WriteLine("Matrix A:");
+Print2DArray(matrixA);
+Console.WriteLine("Matrix B:");
+Print2DArray(matrixB);
+Console.WriteLine("Matrix A*B:");
+Print2DArray(MultiplicationMatrix(matrixA,matrixB));
 
 bool Check (int cols_A, int rows_B)
 {
-    if (rows_B !== cols_A)
+    if (rows_B != cols_A)
         return false;
     return true;
 }
@@ -191,7 +198,18 @@ void Print2DArray (int[,] arr)
         Console.Write("{0}\t",arr[i,j]);
     Console.WriteLine();
     }
+    Console.WriteLine();
 }
+int [,] MultiplicationMatrix (int[,] matrixA, int[,] matrixB)
+{
+    int [,] matrixAB = new int[matrixA.GetLength(0),matrixB.GetLength(1)];
+    for (int i = 0;i < matrixA.GetLength(0);i++)
+        for (int j = 0;j<matrixA.GetLength(1); j++)
+            for (int k = 0;k < matrixB.GetLength(1);k++)
+                matrixAB[i,k]+=matrixA[i,j]*matrixB[j,k];
+    return matrixAB;
+}
+*/
 /*Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел.
 Напишите программу, которая будет построчно выводить массив, добавляя индексы 
 каждого элемента.
