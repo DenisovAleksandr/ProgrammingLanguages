@@ -143,7 +143,55 @@ void Print2DArray (int[,] arr)
 18 20
 15 18
 */
+Console.WriteLine("Enter count rows of matrix A:");
+int rows_A = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count cols of matrix A:");
+int cols_A = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count rows of matrix B:");
+int rows_B = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter count cols of matrix B:");
+int cols_B = Convert.ToInt32(Console.ReadLine());
+while (!Check(arr_rows, arr_cols))
+{
+    Console.WriteLine("The number of columns of the first matrix must equal the number of rows of the second matrix!");
+    Console.WriteLine("Please, enter values again!");
+    Console.WriteLine("Enter count rows of matrix A:");
+    int rows_A = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter count cols of matrix A:");
+    int cols_A = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter count rows of matrix B:");
+    int rows_B = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter count cols of matrix B:");
+    int cols_B = Convert.ToInt32(Console.ReadLine());
 
+}
+
+int [,] matrixA = Create2DArray(rows_A,cols_A);
+int [,] matrixB = Create2DArray(rows_B,cols_B);
+
+bool Check (int cols_A, int rows_B)
+{
+    if (rows_B !== cols_A)
+        return false;
+    return true;
+}
+int[,] Create2DArray(int arr_rows, int arr_cols)
+{
+    int[,] arr = new int[arr_rows, arr_cols];
+    for (int i = 0;i < arr_rows; i++)
+    for (int j = 0;j < arr_cols; j++)
+        arr[i,j] = new Random().Next(10);
+    return arr;
+}
+void Print2DArray (int[,] arr)
+{
+    for (int i = 0;i < arr.GetLength(0) ; i++)
+    {
+        for(int j = 0; j < arr.GetLength(1); j++)
+        Console.Write("{0}\t",arr[i,j]);
+    Console.WriteLine();
+    }
+}
 /*Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел.
 Напишите программу, которая будет построчно выводить массив, добавляя индексы 
 каждого элемента.
