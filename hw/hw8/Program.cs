@@ -238,22 +238,24 @@ int [,,] CreateArray3D (int rows, int cols,int pages)
             {
                 array3D[i,j,k] = new Random().Next(10,100);
                 while (check_array[array3D[i,j,k]]==1)
-                    array3D[i,j,k] = new Random().Next(10,100); +
+                    array3D[i,j,k] = new Random().Next(10,100);
                 check_array[array3D[i,j,k]]=1;
             }
+    return array3D;
 }
 
 void PrintArray3D (int [,,] array3D)
 {
-    for (int i = 0;i<rows;i++)
-        for (int j = 0;j<cols;j++)
+    for (int k = 0;k<array3D.GetLength(2);k++)
+    {
+        Console.WriteLine("Page {0} :",k);
+        for (int i = 0;i<array3D.GetLength(0);i++)
         {
-            for (int k = 0;k<pages;k++)
-            Console.WriteLine ("{0}({1},{2},{3})",array3D[i,j,k],i,j,k);
+            for (int j = 0;j<array3D.GetLength(1);j++)
+            Console.Write ("{0}({1},{2},{3} )",array3D[i,j,k],i,j,k);
             Console.WriteLine("");
         }
-        
-
+    }
 }
 
 /*Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
