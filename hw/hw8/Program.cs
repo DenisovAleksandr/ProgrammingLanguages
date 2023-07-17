@@ -275,42 +275,41 @@ Print2DArray(CreateArrayShake(user_rows, user_cols));
 int [,] CreateArrayShake(int rows, int cols)
 {
     int [,] arr = new int [rows,cols];
+    int first_row = 0;
+    int last_row = rows;
+    int first_col = 0;
+    int last_col = cols;
     int elem=1;
-    int i1=0;
-    int j1=0;
-    int count_elem = cols*rows;
-    while (elem<count_elem)
+    while ((last_col>cols/2)&&(last_row>rows/2))
     {
-        for (int j=j1; j<cols;j++) //right
-        {
-            arr[i1,j1]=elem;
-            elem++;
-            j1=j;
-        }
-        cols--;
-        for (int i=i1; i<rows;i++) //down
-        {
-            arr[i1,j1]=elem;
-            elem++;
-            i1=i;
-        }
-        rows--;
-        
-        for (int j=cols; j>j1;j--) //left
-        {
-            arr[i1,j1]=elem;
-            elem++;
-            j1=j;
-        }
-        cols--;
-        for (int i=rows; i>i1;i--) //up
-        {
-            arr[i1,j1]=elem;
-            elem++;
-            i1=i;
-        }
-        rows--;
+    for (int j = first_col;j < last_col; j++)//rigth
+    {
+        arr[first_row,j] = elem;
+        elem++;
     }
+    first_row++;
+    for(int i=first_row;i<last_row;i++) //down
+    {
+        arr[i,last_col-1]=elem;
+        elem++;
+    }
+    last_col--;
+    for (int j = last_col-1;j >= first_col; j--)//left
+    {
+        arr[last_row-1,j] = elem;
+        elem++;
+    }
+    last_row--;
+    for(int i=last_row-1;i>=first_row;i--) //up
+    {
+        arr[i,first_col]=elem;
+        elem++;
+    }
+    first_col++;
+    }
+    
+
+    return arr;
 }
 void Print2DArray (int[,] arr)
 {
