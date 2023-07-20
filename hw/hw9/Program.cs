@@ -20,6 +20,7 @@ void WrireNaturalNumbers (int m,int n)
 M = 1; N = 15 -> 120
 M = 4; N = 8. -> 30
 */
+/*
 Console.WriteLine("Enter M");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter N");
@@ -34,6 +35,7 @@ int SumNaturalNumbers (int m,int n)
     else
     return m;
 }
+*/
 
 /*
 Задача 68*: Напишите программу вычисления функции Аккермана с помощью рекурсии. 
@@ -41,3 +43,33 @@ int SumNaturalNumbers (int m,int n)
 m = 2, n = 3 -> A(m,n) = 9
 m = 3, n = 2 -> A(m,n) = 29
 */
+Console.WriteLine("Enter positive M");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter positive N");
+int n = Convert.ToInt32(Console.ReadLine());
+while (!CheckPositive(m,n))
+{
+    Console.WriteLine("Invalid numbers! Please try again!");
+    Console.WriteLine("Enter positive M");
+    m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter positive N");
+    n = Convert.ToInt32(Console.ReadLine());
+}
+Console.WriteLine("Result of Function Akkerman's: " + FunctionAkkerman(m,n));
+
+int FunctionAkkerman (int m, int n)
+{
+    if (m==0) 
+        return n+1;
+    else if ((m>0)&&(n==0))
+        return FunctionAkkerman(m-1,1);
+    else
+        return FunctionAkkerman(m-1,FunctionAkkerman(m,n-1));
+
+}
+bool CheckPositive (int m,int n)
+{
+    if ((m>=0)&&(n>=0))
+        return true;
+        else return false;
+}
